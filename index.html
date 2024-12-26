@@ -30,7 +30,8 @@
     <img src="logo.png" alt="Логотип ROB FM" class="logo">
     
     <!-- Аудиоплеер -->
-    <audio controls id="audioPlayer">
+    <audio controls>
+        <source src="http://192.168.43.233:8000" type="audio/mpeg">
         Ваш браузер не поддерживает тег audio.
     </audio>
 
@@ -41,27 +42,5 @@
     <p2 style="margin-top: 40px;">Мы ищем рекламодателей для размещения рекламы на радио ROB FM. Если вы заинтересованы в рекламе на нашей радиостанции, свяжитесь с нами по телефону: <a href="tel:+79099578580">+7 (909) 957-85-80</a>.</p2>
     <a href="/fm.m3u">M3U Плейлист</a>
     <a href="https://vk.com/robfm">ВКонтакте</a>
-
-    <!-- JavaScript -->
-    <script>
-        // Проверяем доступность потока и устанавливаем заголовок для обхода
-        const audioPlayer = document.getElementById('audioPlayer');
-        const streamUrl = 'https://d802-83-220-237-145.ngrok-free.app/';
-
-        fetch(streamUrl, {
-            method: 'HEAD',
-            headers: { 'ngrok-skip-browser-warning': 'true' }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Если поток доступен, устанавливаем его как источник
-                audioPlayer.innerHTML = `<source src="${streamUrl}" type="audio/mpeg">`;
-                audioPlayer.load();
-            } else {
-                console.error('Ошибка: поток недоступен.');
-            }
-        })
-        .catch(error => console.error('Ошибка подключения к Ngrok:', error));
-    </script>
 </body>
 </html>
