@@ -31,7 +31,6 @@
     
     <!-- Аудиоплеер -->
     <audio controls id="audioPlayer">
-        <source src="https://88cb-83-220-237-145.ngrok-free.app" type="audio/mpeg">
         Ваш браузер не поддерживает тег audio.
     </audio>
 
@@ -45,22 +44,24 @@
 
     <!-- JavaScript -->
     <script>
-        // Пропускаем предупреждение Ngrok
-        const audioElement = document.getElementById('audioPlayer');
-        fetch('https://88cb-83-220-237-145.ngrok-free.app', {
-            headers: {
-                'ngrok-skip-browser-warning': 'true'
-            }
+        // Проверяем доступность потока и устанавливаем заголовок для обхода
+        const audioPlayer = document.getElementById('audioPlayer');
+        const streamUrl = 'https://d802-83-220-237-145.ngrok-free.app/';
+
+        fetch(streamUrl, {
+            method: 'HEAD',
+            headers: { 'ngrok-skip-browser-warning': 'true' }
         })
         .then(response => {
             if (response.ok) {
-                audioElement.src = 'https://88cb-83-220-237-145.ngrok-free.app';
+                // Если поток доступен, устанавливаем его как источник
+                audioPlayer.innerHTML = `<source src="${streamUrl}" type="audio/mpeg">`;
+                audioPlayer.load();
             } else {
-                console.error('Ошибка загрузки потока.');
+                console.error('Ошибка: поток недоступен.');
             }
         })
-        .catch(error => console.error('Ошибка запроса:', error));
+        .catch(error => console.error('Ошибка подключения к Ngrok:', error));
     </script>
 </body>
 </html>
-
