@@ -96,10 +96,16 @@
     </div>
 
     <!-- Аудиоплеер -->
-    <audio controls>
-        <source src="https://robfmpotok.out.airtime.pro/robfmpotok_a" type="audio/mpeg">
-        Ваш браузер не поддерживает тег audio.
-    </audio>
+   <button onclick="playAudio()">Play</button>
+   <script>
+       function playAudio() {
+       var audio = new Audio();
+       audio.src = "https://robfmpotok.out.airtime.pro/robfmpotok_a";
+       audio.autoplay = true;
+       audio.controls = true;
+       audio.play();
+       }
+   </script>
 
     <!-- Новости -->
     <div class="news-container">
