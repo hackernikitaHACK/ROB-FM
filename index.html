@@ -7,10 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('background.jpg'); /* Измените 'background.jpg' на путь к вашему изображению */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             margin: 0;
+            padding: 50px;
+            box-sizing: border-box;
+            color: white;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.75); /* Полупрозрачный белый фон */
             padding: 20px;
-            text-align: center;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .logo {
             width: 200px;
@@ -23,24 +34,88 @@
             width: 100%;
             max-width: 500px;
         }
+        .news-container {
+            margin-top: 40px;
+        }
+        .news-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .news-text {
+            line-height: 1.5;
+        }
+        .schedule-container {
+            margin-top: 40px;
+        }
+        .schedule-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .contact-info {
+            margin-top: 40px;
+        }
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+<div class="container">
     <!-- Логотип -->
     <img src="logo.png" alt="Логотип ROB FM" class="logo">
-    
+
     <!-- Аудиоплеер -->
     <audio controls>
         <source src="https://robfmpotok.out.airtime.pro/robfmpotok_a" type="audio/mpeg">
         Ваш браузер не поддерживает тег audio.
     </audio>
 
-    <!-- Краткое описание -->
-    <p style="margin-top: 40px;">Добро пожаловать на ROB FM! Слушайте нашу радиостанцию онлайн прямо сейчас.</p>
-    <p1 style="margin-top: 40px;">Здесь могла быть ваша реклама! <a href="tel:+79099578580">+7 (909) 957-85-80</a>.</p1>
-    
-    <p2 style="margin-top: 40px;">Мы ищем рекламодателей для размещения рекламы на радио ROB FM. Если вы заинтересованы в рекламе на нашей радиостанции, свяжитесь с нами по телефону: <a href="tel:+79099578580">+7 (909) 957-85-80</a>.</p2>
-    <a href="/fm.m3u">M3U Плейлист</a>
-    <a href="https://vk.com/robfm">ВКонтакте</a>
+    <!-- Новости -->
+    <div class="news-container">
+        <h2 class="news-title">Новости</h2>
+        <p class="news-text">Здесь вы можете разместить последние новости вашей радиостанции. Например, информация о новых шоу, гостях или событиях.</p>
+    </div>
+
+    <!-- Расписание -->
+    <div class="schedule-container">
+        <h2 class="schedule-title">Расписание передач</h2>
+        <table class="schedule-table">
+            <tr>
+                <th>День недели</th>
+                <th>Время</th>
+                <th>Передача</th>
+            </tr>
+            <tr>
+                <td>Понедельник</td>
+                <td>09:00 - 11:00</td>
+                <td>Утреннее шоу</td>
+            </tr>
+            <tr>
+                <td>Вторник</td>
+                <td>14:00 - 16:00</td>
+                <td>Музыкальный час</td>
+            </tr>
+            <!-- Продолжение таблицы с расписанием -->
+        </table>
+    </div>
+
+    <!-- Контактная информация -->
+    <div class="contact-info">
+        <p>Мы ищем рекламодателей для размещения рекламы на радио ROB FM. Если вы заинтересованы в рекламе на нашей радиостанции, свяжитесь с нами по телефону: <a href="tel:+79099578580">+7 (909) 957-85-80</a>.</p>
+        <a href="/fm.m3u">M3U Плейлист</a>
+        <a href="https://vk.com/robfm">ВКонтакте</a>
+    </div>
+</div>
 </body>
 </html>
