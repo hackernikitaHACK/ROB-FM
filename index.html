@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('background.jpeg'); /* Измените 'background.jpg' на путь к вашему изображению */
+            background-image: url('background.jpg'); /* Измените 'background.jpg' на путь к вашему изображению */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -23,10 +23,20 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        .logo {
-            width: 200px;
-            height: auto;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 30px;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .station-name {
+            font-size: 24px;
+            font-weight: bold;
         }
         audio {
             display: block;
@@ -72,8 +82,11 @@
 </head>
 <body>
 <div class="container">
-    <!-- Логотип -->
-    <img src="logo.png" alt="Логотип ROB FM" class="logo">
+    <!-- Логотип и название радиостанции -->
+    <div class="header">
+        <img src="logo.png" alt="Логотип ROB FM" class="logo">
+        <span class="station-name">ROB FM</span>
+    </div>
 
     <!-- Аудиоплеер -->
     <audio controls>
@@ -97,16 +110,20 @@
                 <th>Передача</th>
             </tr>
             <tr>
-                <td>Понедельник</td>
-                <td>09:00 - 11:00</td>
-                <td>Утреннее шоу</td>
+                <td>Каждый день</td>
+                <td>00:00 - 19:00</td>
+                <td>Музыка</td>
             </tr>
             <tr>
-                <td>Вторник</td>
-                <td>14:00 - 16:00</td>
-                <td>Музыкальный час</td>
+                <td>Каждый день</td>
+                <td>19:05</td>
+                <td>Новости</td>
             </tr>
-            <!-- Продолжение таблицы с расписанием -->
+            <tr>
+                <td>Каждый день</td>
+                <td>19:05 - 00:00</td>
+                <td>Музыка</td>
+            </tr>
         </table>
     </div>
 
