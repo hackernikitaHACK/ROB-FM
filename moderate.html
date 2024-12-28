@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модерация радиостанций</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Модерация радиостанций</h1>
+    <ul id="stations-list"></ul>
+
+    <script>
+        // Функция для загрузки неподтвержденных радиостанций
+        function loadUnapprovedStations() {
+            let stations = JSON.parse(localStorage.getItem('stations')) || [];
+            return stations;
+        }
+
+        // Функция для подтверждения радиостанции
+        function approveStation(index) {
+            let stations = loadUnapprovedStations();
+            let approvedStation = stations.splice(index, 1)[0];
+            let approvedStations = JSON.parse(localStorage.getItem('approvedStations')) || [];
+            approvedStations.push(approvedStation);
+            localStorage.setItem('approvedStations', JSON.stringify(approvedStations));
+            localStorage.setItem('stations', JSON.stringify(stations));
+            updateStationsList(); // Обновляем список радиостанций
+        }
+
+        // Вывод неподтвержденных радиостанций для модератора
+        function updateStationsList() {
+            let stationsList = document.getElementById('stations-list');
+            stationsList.innerHTML = ''; // Очищаем список перед новым выводом
+
+            let unapprovedStations = loadUnapprovedStations();
+            if (unapprovedStations.length > 0) {
+                unapprovedStations.forEach((station, index) => {
+                    let item = document.createElement('li');
+                    item.textContent = `${index + 1}. ${station.name} (${station.url})`;
+                    let approveButton = document.createElement('button');
+                    approveButton.textContent = 'Подтвердить';
+                    approveButton.onclick = () => approveStation(index); // Привязываем обработчик события
+                    item.appendChild(approveButton);
+                    stationsList.appendChild(item);
+                });
+            } else {
+                stationsList.innerHTML = '<li>Нет неподтвержденных радиостанций.</li>';
+            }
+        }
+
+        // Отображаем список радиостанций при загрузке страницы
+        window.onload = updateStationsList;
+    </script>
+</body>
+</html>
