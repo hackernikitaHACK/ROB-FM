@@ -47,6 +47,13 @@
         .news-container {
             margin-top: 40px;
         }
+        .small-fixed-banner {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: scale(0.5);
+            z-index: 9999;
+        }
         .news-title {
             font-weight: bold;
             font-size: 18px;
@@ -134,9 +141,7 @@
         <a href="https://vk.com/robfm">ВКонтакте</a>
     </div>
 
-    <a href="#">
-        <img src="banner.png" alt="Реклама" width="300" height="100"/>
-    </a>
+    <img src="banner.png" alt="Реклама" class="small-fixed-banner" />
 </div>
 </body>
 </html>
