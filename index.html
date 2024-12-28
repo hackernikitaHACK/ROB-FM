@@ -96,14 +96,31 @@
     </div>
 
     <!-- Аудиоплеер -->
-   <button onclick="playAudio()">Play</button>
+   <button onclick="togglePlayPause()" id="play-pause-button">Play</button>
    <script>
-       function playAudio() {
-       var audio = new Audio();
-       audio.src = "https://robfmpotok.out.airtime.pro/robfmpotok_a";
-       audio.autoplay = true;
-       audio.controls = true;
-       audio.play();
+       function togglePlayPause() {
+           var audio = document.getElementById("play-pause-button");
+           if (audio.textContent == "Play") {
+               audio.textContent = "Stop";
+               audio.onclick = stopAudio;
+           } else {
+               audio.textContent = "Play";
+               audio.onclick = startAudio;
+           }
+       }
+
+       function startAudio() {
+           var audio = document.getElementById("play-pause-button").getAttribute("src");
+           if (audio.paused) {
+               audio.play();
+           }
+       }
+
+       function stopAudio() {
+           var audio = document.getElementById("play-pause-button").getAttribute("src");
+           if (audio.playing) {
+               audio.pause();
+           }
        }
    </script>
 
