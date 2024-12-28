@@ -96,33 +96,10 @@
     </div>
 
     <!-- Аудиоплеер -->
-   <button onclick="togglePlayPause()" id="play-pause-button">Play</button>
-   <script>
-       function togglePlayPause() {
-           var audio = document.getElementById("play-pause-button");
-           if (audio.textContent == "Play") {
-               audio.textContent = "Stop";
-               audio.onclick = stopAudio;
-           } else {
-               audio.textContent = "Play";
-               audio.onclick = startAudio;
-           }
-       }
-
-       function startAudio() {
-           var audio = document.getElementById("play-pause-button").getAttribute("src");
-           if (audio.paused) {
-               audio.play();
-           }
-       }
-
-       function stopAudio() {
-           var audio = document.getElementById("play-pause-button").getAttribute("src");
-           if (audio.playing) {
-               audio.pause();
-           }
-       }
-   </script>
+    <audio controls>
+        <source src="https://robfmpotok.out.airtime.pro/robfmpotok_a" type="audio/mpeg">
+            Ваш браузер не поддерживает тег audio.
+    </audio>
 
     <!-- Новости -->
     <div class="news-container">
